@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Flip Slider</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="card-wrapper">
+          <div class="card" id="card5"></div>
+          <div class="card" id="card4"></div>
+          <div class="card" id="card3"></div>
+          <div class="card" id="card2"></div>
+          <div class="card" id="card1"></div>
+        </div>
+        <div class="button-wrapper">
+          <!-- <button
+            type="button"
+            class="button"
+            id="previous-button"
+            onclick="clickPreviousButton()"
+            disabled
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+              />
+            </svg>
+          </button> -->
+          <button
+            type="button"
+            class="button"
+            id="next-button"
+            onclick="clickNextButton()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      let activeCardNumber = 1;
+
+      const previousButton = document.getElementById("previous-button");
+      const nextButton = document.getElementById("next-button");
+
+      function clickPreviousButton() {
+        const openCard = document.getElementById("card" + activeCardNumber);
+        openCard.classList.remove("open");
+        if (activeCardNumber > 1) activeCardNumber--;
+        handleButton();
+      }
+      function clickNextButton() {
+        const openCard = document.getElementById("card" + activeCardNumber);
+        openCard.classList.add("open");
+        if (activeCardNumber < 5) activeCardNumber++;
+        handleButton();
+      }
+
+      function handleButton() {
+        // if (activeCardNumber == 1)
+        //   previousButton.setAttribute("disabled", true);
+        // else previousButton.removeAttribute("disabled");
+        if (activeCardNumber == 5) nextButton.setAttribute("disabled", true);
+        else nextButton.removeAttribute("disabled");
+      }
+    </script>
+  </body>
+</html>
